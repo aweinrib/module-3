@@ -130,6 +130,7 @@ function MenuCategoriesController($scope, MenuCategoriesService) {
 	})
 		.catch(function (error) {
 		console.log("Something went terribly wrong.");
+		console.log(error);
 	});	
   };
   
