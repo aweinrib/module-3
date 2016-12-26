@@ -105,15 +105,15 @@ function MenuCategoriesController($scope, MenuCategoriesService) {
 			noHits = true;
 			return;
 		}
-		
+				
 		var filteredCategories = [];
 		var upperSearch = $scope.searchItem.toUpperCase();			// Convert to uppercase to do search
-		var entireMenu  = response.data;
-		
+		var entireMenu  = response;	
 		
 		for (var i=0; i < entireMenu.length; i++) {
 			var item = entireMenu[i];
-			// console.log("Checking item ", item);
+			// console.log(item);
+			// console.log("Checking item ", item.name, " - ");
 			if ( item.name.toUpperCase().indexOf(upperSearch) > -1 ) {
 				filteredCategories.push(item);
 			};
@@ -158,12 +158,14 @@ function MenuCategoriesService($http, ApiBasePath) {
   var service = this;
 
   service.getMenuCategories = function () {
-    var response = $http({
+    return $http({
       method: "GET",
-      url: (ApiBasePath + "/categories.json")
-    });
-
-    return response;
+      url: (ApiBasePath + "/menu_items.json"),
+    })
+    .then(function (result) {
+			var list = result.data.menu_items;
+			return list;			
+		});
   };
 
 
