@@ -4,7 +4,7 @@
 angular.module('NarrowItDownApp', [])
 .controller('MenuCategoriesController', MenuCategoriesController)
 .service('MenuCategoriesService', MenuCategoriesService)
-.constant('ApiBasePath', "http://davids-restaurant.herokuapp.com")
+.constant('ApiBasePath', "https://davids-restaurant.herokuapp.com")
 .directive('foundItems', FoundItemsDirective);
 
 var deletedItem;
