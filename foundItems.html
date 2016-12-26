@@ -1,0 +1,12 @@
+<div>
+	<h3>Menu Listing</h3>
+
+	<ul>
+		<li ng-repeat="item in list.items">						
+			(<a href="" ng-click="menu.logMenuItems(item.short_name);">{{ item.short_name }}</a>)
+			{{ item.name }}
+			<button class="btn btn-info" ng-click="list.onRemove($index);">Remove Item</button>  
+		</li>
+	</ul>	
+	<div class="error">Nothing on menu matches your selection</div>	
+</div>	
